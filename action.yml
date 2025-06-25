@@ -74,6 +74,11 @@ inputs:
     required: false
     default: "30"
 
+  claude_code_version:
+    description: "Version of @anthropic-ai/claude-code to install (default: latest)"
+    required: false
+    default: "latest"
+
 outputs:
   execution_file:
     description: "Path to the Claude Code execution output file"
@@ -125,6 +130,7 @@ runs:
         claude_access_token: ${{ inputs.claude_access_token }}
         claude_refresh_token: ${{ inputs.claude_refresh_token }}
         claude_expires_at: ${{ inputs.claude_expires_at }}
+        claude_code_version: ${{ inputs.claude_code_version }}
       env:
         # Model configuration
         ANTHROPIC_MODEL: ${{ inputs.model || inputs.anthropic_model }}
